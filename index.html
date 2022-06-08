@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Tic Tac Toe</title>
+  </head>
+
+  <body>
+    <h1>Tic Tac Toe</h1>
+    <div class="choice">
+      <p>choose your player</p>
+      <div class="btns">
+        <div class="btnChoice xbtn" id="btnx">x</div>
+        <div class="btnChoice obtn" id="btno">o</div>
+      </div>
+    </div>
+    <div class="theGame noDisplay">
+      <div class="board">
+        <div id="00" data-i="0" data-j="0" class="cell hover"></div>
+        <div id="01" data-i="0" data-j="1" class="cell hover"></div>
+        <div id="02" data-i="0" data-j="2" class="cell hover"></div>
+        <div id="10" data-i="1" data-j="0" class="cell hover"></div>
+        <div id="11" data-i="1" data-j="1" class="cell hover"></div>
+        <div id="12" data-i="1" data-j="2" class="cell hover"></div>
+        <div id="20" data-i="2" data-j="0" class="cell hover"></div>
+        <div id="21" data-i="2" data-j="1" class="cell hover"></div>
+        <div id="22" data-i="2" data-j="2" class="cell hover"></div>
+      </div>
+
+      <div class="dashboard">
+        <div class="turn">
+          <p class="turnP">turn</p>
+          <div class="turnInfo">
+            <div id="turnSymbol" class="turnSymbol">x</div>
+            <div id="turnNumber" class="turnNumber">1</div>
+          </div>
+        </div>
+        <div class="btn">
+          <button class="btnRst">Restart</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/game.js"></script>
+    <script src="js/interface.js"></script>
+  </body>
+</html>

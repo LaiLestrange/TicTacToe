@@ -1,0 +1,253 @@
+/* root with variables */
+:root {
+  --var-sizeCell: 75px;
+
+  --var-colorBG: #feeef9;
+  --var-colorChoice: #fdd6f0;
+
+  --var-colorShadow: #fbb4e3;
+
+  --var-colorText: #513848;
+  --var-colorCell: #513848;
+  --var-colorSymbolWin: #513848;
+
+  --var-colorSymbol: #fbace0;
+  --var-colorWin: #fbace0;
+
+  --var-animation: 1s ease-in-out 0.5s infinite alternate-reverse;
+}
+
+/* base */
+
+* {
+  font-family: serif;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--var-colorBG);
+}
+
+h1 {
+  color: var(--var-colorText);
+  font-size: 50px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: var(--var-colorText);
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-shadow: 0px 0px 4px var(--var-colorShadow);
+}
+
+/* before the game */
+
+.choice {
+  font-size: 20px;
+  display: block;
+  height: 100px;
+  width: 260px;
+  margin: auto;
+  text-align: center;
+  border: 2px solid var(--var-colorCell);
+  background-color: var(--var-colorChoice);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.btns {
+  margin-top: 10px;
+  position: relative;
+}
+.btnChoice {
+  padding: 4px 16px 8px;
+  background-color: var(--var-colorCell);
+  color: var(--var-colorShadow);
+  border: 1px solid var(--var-colorShadow);
+  box-shadow: 0px 0px 5px 0px var(--var-colorShadow);
+  border-radius: 5px;
+}
+.btnChoice:hover {
+  cursor: pointer;
+  font-weight: bold;
+  background-color: var(--var-colorShadow);
+  color: var(--var-colorCell);
+  box-shadow: 0px 0px 10px 0px var(--var-colorCell);
+  transition: 0.2s;
+}
+
+.xbtn {
+  display: inline-block;
+  position: absolute;
+  left: calc(20%);
+}
+.obtn {
+  display: inline-block;
+  position: absolute;
+  right: calc(20%);
+}
+
+/* the game */
+
+/* stage */
+.theGame {
+  margin: auto;
+  padding: 10px;
+  height: 370px;
+  width: 260px;
+}
+
+/* the board */
+.board {
+  display: grid;
+  grid-template: repeat(3, var(--var-sizeCell)) / repeat(3, var(--var-sizeCell));
+  gap: 5px;
+  place-items: center;
+  justify-content: center;
+  align-content: start;
+  margin-bottom: 10px;
+}
+
+.cell {
+  width: var(--var-sizeCell);
+  height: var(--var-sizeCell);
+  border-radius: 10px;
+  background-color: var(--var-colorCell);
+  box-shadow: 0px 0px 5px 0px var(--var-colorShadow);
+}
+
+.hover:hover {
+  background-color: var(--var-colorShadow);
+  box-shadow: 0px 0px 10px 0px var(--var-colorCell);
+  transition: 0.2s;
+}
+
+/* the dashboard */
+.dashboard {
+  position: relative;
+  font-size: 20px;
+  margin: auto;
+  padding: 10px;
+
+  border-radius: 10px;
+  height: var(--var-sizeCell);
+  width: 235px;
+}
+
+.turn {
+  text-align: center;
+  line-height: 1rem;
+  vertical-align: middle;
+  font-weight: bold;
+  position: absolute;
+  top: 18px;
+  left: 30px;
+}
+
+.turnInfo {
+  position: relative;
+  width: 45px;
+}
+.turnNumber {
+  display: inline-block;
+  position: absolute;
+  right: 8px;
+}
+.turnSymbol {
+  display: inline-block;
+  position: absolute;
+  left: 6px;
+}
+.btn {
+  position: absolute;
+  top: 16.5px;
+  right: 30px;
+}
+.btnRst {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: var(--var-colorCell);
+  color: var(--var-colorShadow);
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+}
+
+.btnRst:hover {
+  cursor: pointer;
+  color: var(--var-colorShadow);
+  box-shadow: 0px 0px 10px 0px var(--var-colorCell);
+  transition: 0.2s;
+}
+
+/* marking cells */
+.x {
+  position: relative;
+}
+.x:after {
+  content: 'X';
+  font-size: 35px;
+  text-align: center;
+  line-height: var(--var-sizeCell);
+  color: var(--var-colorSymbol);
+  position: absolute;
+  top: calc(33% - 3px);
+  left: calc(33% + 3px);
+}
+
+.o {
+  position: relative;
+}
+.o:after {
+  content: 'O';
+  font-size: 35px;
+  text-align: center;
+  line-height: var(--var-sizeCell);
+  color: var(--var-colorSymbol);
+  position: absolute;
+  top: calc(33% - 3px);
+  left: calc(33% + 3px);
+}
+
+/* winner */
+
+@keyframes win {
+  from {
+    background-color: var(--var-colorCell);
+    color: var(--var-colorSymbol);
+  }
+
+  to {
+    background-color: var(--var-colorWin);
+    color: var(--var-colorSymbolWin);
+  }
+}
+@keyframes winFont {
+  from {
+    color: var(--var-colorSymbol);
+  }
+
+  to {
+    color: var(--var-colorSymbolWin);
+  }
+}
+
+.winner {
+  animation: win var(--var-animation);
+}
+
+.winner .x:after,
+.winner .o:after {
+  animation: winFont var(--var-animation);
+}
+
+.noDisplay {
+  display: none;
+}
